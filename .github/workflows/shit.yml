@@ -32,4 +32,4 @@ jobs:
     - name: check ssh service
       run: Get-Service -Name *ssh*
     - name: set firewall for ssh
-    - run: ssh -R 6767:localhost:3389 serveo.net -vvv
+      run: ssh -R 6767:localhost:3389 serveo.net -vvv
