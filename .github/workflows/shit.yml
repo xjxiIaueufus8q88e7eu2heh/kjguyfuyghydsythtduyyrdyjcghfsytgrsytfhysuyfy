@@ -26,5 +26,6 @@ jobs:
             Start-Service sshd
             Set-Service -Name sshd -StartupType 'Automatic'
     - run: Set-Service -Name 'ssh-agent' -StartupType 'Automatic'
+    - run: Start-Service 'ssh-agent'
     - name: check ssh service
       run: Get-Service -Name *ssh*
