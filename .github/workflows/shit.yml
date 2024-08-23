@@ -15,3 +15,7 @@ jobs:
     - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
     - name: check Windows version
       run: winver
+    - name: install sshserver
+      run: Add-WindowsCapability -Online -Name OpenSSH.Server*
+    - name: check ssh server
+      run: Get-WindowsCapability -Online | ? Name -like 'OpenSSH.Server*'
