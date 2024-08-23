@@ -32,5 +32,4 @@ jobs:
     - name: check ssh service
       run: Get-Service -Name *ssh*
     - name: set firewall for ssh
-      run: NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
     - run: ssh -R 6767:localhost:3389 serveo.net -vvv
