@@ -21,11 +21,13 @@ jobs:
       run: Get-WindowsCapability -Online | ? Name -like 'OpenSSH.Server*'
     - name: check ssh
       run: Get-Service -Name *ssh*
-    - name: start ssh service
+    - name: set ssh service automatic
+      run: |
+            Set-Service -Name 'ssh-agent' -StartupType 'Automatic'
+            Set-Service -Name sshd -StartupType 'Automatic'
+    - name: start sshd, ssh-agent
       run: |
             Start-Service sshd
-            Set-Service -Name sshd -StartupType 'Automatic'
-    - run: Set-Service -Name 'ssh-agent' -StartupType 'Automatic'
-    - run: Start-Service 'ssh-agent'
+            Start-Service 'ssh-agent'
     - name: check ssh service
       run: Get-Service -Name *ssh*
