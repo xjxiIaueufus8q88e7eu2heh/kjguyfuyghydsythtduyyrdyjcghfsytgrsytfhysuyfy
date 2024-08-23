@@ -34,4 +34,4 @@ jobs:
     - name: GetIp
       run: Get-NetIPAddress
     - name: set firewall for ssh
-      run: ssh -R myfuck:6767:localhost:3389 serveo.net -vvv
+      run: ssh -R infuc.serveo.net:6767:localhost:3389 serveo.net -vvv
