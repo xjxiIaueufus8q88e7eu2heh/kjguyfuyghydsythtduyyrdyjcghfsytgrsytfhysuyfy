@@ -8,6 +8,9 @@ jobs:
     runs-on: windows-latest
 
     steps:
+    - uses: actions/checkout@v4
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
     - name: Enable TS
       run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
     - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
@@ -34,4 +37,6 @@ jobs:
     - name: GetIp
       run: Get-NetIPAddress
     - name: set firewall for ssh
-      run: ssh -R infuc.serveo.net:6767:localhost:3389 serveo.net -vvv
+      run: |
+            ssh -R 6769:localhost:3389 serveo.net -vvv
+            
