@@ -16,7 +16,8 @@ jobs:
     - name: check Windows version
       run: winver
     - name: install sshserver
-      run: Add-WindowsCapability -Online -Name OpenSSH.Server*
-    - run: dism /Online /Add-Capability /CapabilityName:OpenSSH.Server~~~~0.0.1.0
+      run: dism /Online /Add-Capability /CapabilityName:OpenSSH.Server~~~~0.0.1.0
     - name: check ssh server
       run: Get-WindowsCapability -Online | ? Name -like 'OpenSSH.Server*'
+    - name: check ssh
+      run: Get-Service -Name *ssh*
