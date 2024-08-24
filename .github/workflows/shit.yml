@@ -42,11 +42,8 @@ jobs:
             $source = Join-Path -Path $env:TEMP -ChildPath "zrok\zrok.exe"
             $destination = Join-Path -Path $env:USERPROFILE -ChildPath "bin\zrok.exe"
             New-Item -Path $destination -ItemType Directory -ErrorAction SilentlyContinue
-            Copy-Item -Path $source -Destination $destination
-            $env:path += ";"+$destination
+            Copy-Item -Path $source -Destination $destination $env:path += ";"+$destination
             dir
-    - name: run zrok
-      run:  zrok version
     - uses: actions/checkout@v4
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v3
