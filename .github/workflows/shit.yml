@@ -38,7 +38,7 @@ jobs:
     - name: extract zip
       run: |
             New-Item -Path "$env:TEMP\zrok" -ItemType Directory -ErrorAction Stop
-            tar -xf .\zrok.tar.gz -C "$env:TEMP\zrok"
+            tar -xf $env:temp\zrok.tar.gz -C "$env:TEMP\zrok"
     - name: set up zrok
       run: |
             $source = Join-Path -Path $env:TEMP -ChildPath "zrok\zrok.exe"
