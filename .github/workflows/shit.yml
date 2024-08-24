@@ -47,7 +47,7 @@ jobs:
             Copy-Item -Path $source -Destination $destination
             $env:path += ";"+$destination
     - name: run zrok
-      run: zrok version
+      run:  C:\Users\runneradmin\bin\zrok.exe
     - uses: actions/checkout@v4
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v3
