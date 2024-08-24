@@ -40,14 +40,14 @@ jobs:
             New-Item -Path "$env:TEMP\zrok" -ItemType Directory -ErrorAction Stop
             tar -xf $env:temp\zrok.tar.gz -C "$env:TEMP\zrok"
     - name: set up zrok
-      run: |
-            $source = Join-Path -Path $env:TEMP -ChildPath "zrok\zrok.exe"
-            $destination = Join-Path -Path $env:USERPROFILE -ChildPath "bin\zrok.exe"
-            New-Item -Path $destination -ItemType Directory -ErrorAction SilentlyContinue
-            Copy-Item -Path $source -Destination $destination
-            $env:path += ";"+$destination
+    - run: $source = Join-Path -Path $env:TEMP -ChildPath "zrok\zrok.exe"
+    - run: $destination = Join-Path -Path $env:USERPROFILE -ChildPath "bin\zrok.exe"
+    - run: New-Item -Path $destination -ItemType Directory -ErrorAction SilentlyContinue
+    - run: Copy-Item -Path $source -Destination $destination
+    - run: $env:path += ";"+$destination
+    - run: dir
     - name: run zrok
-      run:  C:\Users\runneradmin\bin\zrok.exe
+      run:  zrok version
     - uses: actions/checkout@v4
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v3
