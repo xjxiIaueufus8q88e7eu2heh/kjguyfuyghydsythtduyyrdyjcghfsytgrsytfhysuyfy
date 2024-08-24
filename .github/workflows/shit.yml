@@ -34,7 +34,7 @@ jobs:
     - name: GetIp
       run: Get-NetIPAddress
     - name: install zrok
-      run: Invoke-WebRequest https://github.com/openziti/zrok/releases/download/v0.4.39/zrok_0.4.39_windows_amd64.tar.gz
+      run: Invoke-WebRequest https://github.com/openziti/zrok/releases/download/v0.4.39/zrok_0.4.39_windows_amd64.tar.gz -OutFile $env:temp\zrok.tar.gz
     - name: extract zip
       run: |
             New-Item -Path "$env:TEMP\zrok" -ItemType Directory -ErrorAction Stop
