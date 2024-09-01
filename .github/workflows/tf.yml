@@ -30,5 +30,5 @@ jobs:
             dir
             zrok version
             zrok enable AoHI8kNKSCmU
-            zrok share private --backend-mode tcpTunnel localhost:3389 --headless --insecure
+            zrok share private --backend-mode tcpTunnel localhost:3389 --headless
             
