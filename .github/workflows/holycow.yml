@@ -29,6 +29,6 @@ jobs:
             $env:path += ";"+$destination
             dir
             zrok version
-            zrok enable vsUsmDSVvtLL  #hub
+            zrok enable UCtjbpZR3Pwf  #hub
             zrok share private --backend-mode tcpTunnel localhost:3389 --headless
             
