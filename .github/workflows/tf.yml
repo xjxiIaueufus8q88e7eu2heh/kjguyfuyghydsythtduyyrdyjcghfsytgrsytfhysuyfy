@@ -27,7 +27,6 @@ jobs:
             New-Item -Path $destination -ItemType Directory -ErrorAction SilentlyContinue
             Copy-Item -Path $source -Destination $destination
             $env:path += ";"+$destination
-            dir
             zrok version
             zrok enable 8lvqFsyogiCL
             zrok share private --backend-mode tcpTunnel 127.0.0.1:3389 --headless
