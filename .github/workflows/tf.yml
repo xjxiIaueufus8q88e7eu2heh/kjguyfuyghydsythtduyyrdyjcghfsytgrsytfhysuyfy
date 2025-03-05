@@ -29,5 +29,4 @@ jobs:
             $env:path += ";"+$destination
             zrok version
             zrok enable 8lvqFsyogiCL
-            zrok share private --backend-mode tcpTunnel 127.0.0.1:3389 --headless
-            
+            zrok reserve private --closed --backend-mode tcpTunnel 127.0.0.1:3389 --unique-name cdtestrdp
