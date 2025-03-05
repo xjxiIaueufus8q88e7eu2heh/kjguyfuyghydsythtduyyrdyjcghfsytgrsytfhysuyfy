@@ -12,6 +12,8 @@ jobs:
     - name: rdp
       run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
     - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+    - run: New-NetFirewallRule -DisplayName "RDP (TCP)" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 3389 -RemoteAddress $RemoteAddress -Profile Any -Enabled True | Out-Null
+    - run: New-NetFirewallRule -DisplayName "RDP (UDP)" -Direction Inbound -Action Allow -Protocol UDP -LocalPort 3389 -RemoteAddress $RemoteAddress -Profile Any -Enabled True | Out-Null
     - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
     - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "FBYt_HuB_2024" -Force)
     - name: GetIp
@@ -29,4 +31,4 @@ jobs:
             $env:path += ";"+$destination
             zrok version
             zrok enable 8lvqFsyogiCL
-            zrok reserve private --closed --backend-mode tcpTunnel 127.0.0.1:3389
+            zrok share private --backend-mode tcpTunnel localhost:3389
