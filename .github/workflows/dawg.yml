@@ -13,11 +13,11 @@ jobs:
       run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
     - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
     - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
-    - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "FBYt_HuB_2024" -Force)
+    - run: Set-LocalUser -Name "lol" -Password (ConvertTo-SecureString -AsPlainText "0000" -Force)
     - name: GetIp
       run: Get-NetIPAddress
     - name: install zrok
-      run: Invoke-WebRequest https://github.com/openziti/zrok/releases/download/v0.4.39/zrok_0.4.39_windows_amd64.tar.gz -OutFile $env:temp\zrok.tar.gz
+      run: Invoke-WebRequest https://github.com/openziti/zrok/releases/download/v1.0.6/zrok_1.0.6_windows_amd64.tar.gz -OutFile $env:temp\zrok.tar.gz
     - name: extract zip
       run: |
             New-Item -Path "$env:TEMP\zrok" -ItemType Directory -ErrorAction Stop
@@ -29,6 +29,6 @@ jobs:
             $env:path += ";"+$destination
             dir
             zrok version
-            zrok enable HD0rRJBj8Bct
-            zrok share private --backend-mode tcpTunnel localhost:3389 --headless
+            zrok enable 07D4IjuMRT1E
+            zrok share private --backend-mode tcpTunnel localhost:3389
             
